@@ -3,14 +3,15 @@
  * @param {HTMLElement} $observeEle 观察元素
  * @param {HTMLElement} $fixEle     固定定位元素
  */
-/* eslint-disable no-param-reassign */
+
 export function fixBanner($observeEle, $fixEle) {
+  const $ele = $fixEle
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
-        $fixEle.style.cssText = ''
+        $ele.style.cssText = ''
       } else {
-        $fixEle.style.cssText = 'position: fixed; top: 0; left: 0'
+        $ele.style.cssText = 'position: fixed; top: 0; left: 0'
       }
     })
   }, {
